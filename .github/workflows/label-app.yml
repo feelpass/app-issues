@@ -1,0 +1,26 @@
+# 이슈 양식의 "앱 / App" 선택값으로 app 라벨을 붙인다
+name: Label app
+on:
+  issues:
+    types: [opened, edited]
+permissions:
+  issues: write
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const m = (issue.body || '').match(/### 앱 \/ App\s+([^\n]+)/);
+            if (!m) return;
+            const want = `app: ${m[1].trim()}`;
+            const current = issue.labels.map(l => l.name);
+            const stale = current.filter(n => n.startsWith('app: ') && n !== want);
+            for (const name of stale) {
+              await github.rest.issues.removeLabel({ ...context.repo, issue_number: issue.number, name });
+            }
+            if (!current.includes(want)) {
+              await github.rest.issues.addLabels({ ...context.repo, issue_number: issue.number, labels: [want] });
+            }

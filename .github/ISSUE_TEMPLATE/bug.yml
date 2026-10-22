@@ -1,0 +1,49 @@
+name: 버그 신고 / Bug report
+description: 앱이 기대와 다르게 동작해요 / Something isn't working as expected
+labels: [bug]
+body:
+  - type: dropdown
+    id: app
+    attributes:
+      label: 앱 / App
+      options:
+        - Type
+        - Type History
+        - Cloak
+        - Type Keyboard (iOS)
+        - 기타 / Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 앱 버전 / App version
+      description: 설정 화면 또는 스토어에서 확인 / Check in Settings or the store
+  - type: input
+    id: device
+    attributes:
+      label: 기기·OS / Device & OS
+      placeholder: Galaxy S24, Android 16
+  - type: textarea
+    id: what
+    attributes:
+      label: 무슨 일이 있었나요? / What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 방법 / Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+  - type: textarea
+    id: expected
+    attributes:
+      label: 기대한 동작 / Expected behavior
+  - type: textarea
+    id: media
+    attributes:
+      label: 스크린샷·영상 / Screenshots & video
+      description: 여기에 끌어다 놓으면 첨부돼요 / Drag and drop files here

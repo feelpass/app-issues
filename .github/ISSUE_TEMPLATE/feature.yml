@@ -1,0 +1,31 @@
+name: 기능 제안 / Feature request
+description: 이런 게 있으면 좋겠어요 / An idea or improvement
+labels: [enhancement]
+body:
+  - type: dropdown
+    id: app
+    attributes:
+      label: 앱 / App
+      options:
+        - Type
+        - Type History
+        - Cloak
+        - Type Keyboard (iOS)
+        - 기타 / Other
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: 제안 내용 / Idea
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: 왜 필요한가요? / Why is it needed?
+  - type: textarea
+    id: media
+    attributes:
+      label: 참고 자료 / References
+      description: 스크린샷·링크·다른 앱 예시 / Screenshots, links, examples from other apps
