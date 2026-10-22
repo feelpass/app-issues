@@ -1,22 +1,21 @@
-name: 질문·논의 / Question & discussion
-description: 궁금한 점이나 같이 정할 것 / Questions or things to decide together
+name: Question & discussion
+description: Questions or things to decide together
 labels: [question]
 body:
   - type: dropdown
     id: app
     attributes:
-      label: 앱 / App
+      label: App
       options:
         - Type
         - Type History
         - Cloak
-        - Type Keyboard (iOS)
-        - 기타 / Other
+        - Other
     validations:
       required: true
   - type: textarea
     id: body
     attributes:
-      label: 내용 / Details
+      label: Details
     validations:
       required: true

@@ -1,4 +1,4 @@
-# 이슈 양식의 "앱 / App" 선택값으로 app 라벨을 붙인다
+# Add an "app: <name>" label from the "App" field of the issue form
 name: Label app
 on:
   issues:
@@ -13,7 +13,7 @@ jobs:
         with:
           script: |
             const issue = context.payload.issue;
-            const m = (issue.body || '').match(/### 앱 \/ App\s+([^\n]+)/);
+            const m = (issue.body || '').match(/### App\s+([^\n]+)/);
             if (!m) return;
             const want = `app: ${m[1].trim()}`;
             const current = issue.labels.map(l => l.name);
